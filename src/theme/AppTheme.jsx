@@ -9,7 +9,6 @@ export const AppTheme = ({ children }) => {
     <ThemeProvider theme={ purpleTheme }>
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
       <CssBaseline />
-      
       { children }
     </ThemeProvider>
   )
