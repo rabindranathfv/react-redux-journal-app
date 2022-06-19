@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { signIgWithGoogle } from '/src/firebase/provider';
 
 const initialState = {
-  status: 'not-authenticated', // checking, 
+  status: 'not-authenticated', // checking,
   uid: null,
   email: null,
   displayName: null,
@@ -13,11 +14,21 @@ export const AuthSlice = createSlice({
   name: 'Auth',
   initialState,
   reducers: {
-    login: (state, action) => {
-
+    login: (state, { payload }) => {
+      state.status = 'authenticated'; // checking,
+      state.uid = payload.uid;
+      state.email = payload.email;
+      state.displayName = payload.displayName;
+      state.picUrl = payload.photoURL;
+      state.errorMessage = null;
     },
-    logout: (state, payload) => {
-
+    logout: (state, { payload }) => {
+      state.status = 'not-authenticated'; // checking,
+      state.uid = null;
+      state.email = null;
+      state.displayName = null;
+      state.picUrl = null;
+      state.errorMessage = payload.errorMessage | null;
     },
     checkingCredentials: (state) => {
       state.status = 'checking';
@@ -33,7 +44,15 @@ export const checkingAuthentication = (email, password) => {
 
 export const startGoogleSignIn = (email, password) => {
   return async (dispatch) => {
-    dispatch(checkingCredentials(email, password))
+    dispatch(checkingCredentials(email, password));
+    const signG = await signIgWithGoogle();
+    console.log("🚀 ~ file: authSlice.js ~ line 40 ~ return ~ signG", signG)
+    if (!signG.ok) {
+      dispatch(logout(signG.errorMsg))
+    }
+
+    dispatch(login(signG))
+
   }
 }
 
