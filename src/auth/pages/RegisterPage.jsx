@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link as RouterLink } from 'react-router-dom';
+
 import { Button, easing, Grid, Link, TextField, Typography } from '@mui/material';
 import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks/useForm';
-import { useDispatch } from 'react-redux';
 
 const formValidations = {
   email: [ (value) => value.includes("@"), 'the email should have an @'],
@@ -25,12 +26,11 @@ export const RegisterPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setformSubmitted(true);
-    console.log( formState)
+    if(!isFormValid) return;
   }
 
   return (
     <AuthLayout title="Crear cuenta">
-      <h2>{ isFormValid ? 'valido': 'cagaste'}</h2>
       <form onSubmit={handleSubmit}>
           <Grid container>
 
