@@ -6,16 +6,25 @@ import { getEnvironments } from '../helpers/getEnvironments';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
+// TODO: Descomentar esto cuando sea el momento
+// const {
+//   VITE_APIKEY,
+//   VITE_AUTHDOMAIN,
+//   VITE_DATABASEURL,
+//   VITE_PROJECTID,
+//   VITE_STORAGEBUCKET,
+//   VITE_MESSAGINGSENDERID,
+//   VITE_APPID,
+// } = getEnvironments();
 
-const {
-  VITE_APIKEY,
-  VITE_AUTHDOMAIN,
-  VITE_DATABASEURL,
-  VITE_PROJECTID,
-  VITE_STORAGEBUCKET,
-  VITE_MESSAGINGSENDERID,
-  VITE_APPID,
-} = getEnvironments();
+const firebaseConfig = {
+  apiKey: "AIzaSyD8ORmGCDmCW1DfBAgY4u4rgRtZqgN8h84",
+  authDomain: "journalapp-react-d1209.firebaseapp.com",
+  projectId: "journalapp-react-d1209",
+  storageBucket: "journalapp-react-d1209.appspot.com",
+  messagingSenderId: "344291098110",
+  appId: "1:344291098110:web:cca386d28b83ed94c594af"
+};
 
 
 // console.log(process.env);
@@ -25,12 +34,12 @@ const {
 // Your web app's Firebase configuration
 // Dev/Prod
 // const firebaseConfig = {
-  // apiKey: "AIzaSyC9qM8LKYti4TZus0g00ISzMjudet-H2vg",
-  // authDomain: "react-cursos-4368a.firebaseapp.com",
-  // projectId: "react-cursos-4368a",
-  // storageBucket: "react-cursos-4368a.appspot.com",
-  // messagingSenderId: "35683178704",
-  // appId: "1:35683178704:web:2cab2003319bbac2eba6d5"
+// apiKey: "AIzaSyC9qM8LKYti4TZus0g00ISzMjudet-H2vg",
+// authDomain: "react-cursos-4368a.firebaseapp.com",
+// projectId: "react-cursos-4368a",
+// storageBucket: "react-cursos-4368a.appspot.com",
+// messagingSenderId: "35683178704",
+// appId: "1:35683178704:web:2cab2003319bbac2eba6d5"
 // };
 
 // Testing
@@ -44,17 +53,18 @@ const {
 //   appId: "1:145943821416:web:12e973eaa8b630a444cfdd"
 // };
 
-const firebaseConfig = {
-  apiKey: VITE_APIKEY,
-  authDomain: VITE_AUTHDOMAIN,
-  databaseURL: VITE_DATABASEURL,
-  projectId: VITE_PROJECTID,
-  storageBucket: VITE_STORAGEBUCKET,
-  messagingSenderId: VITE_MESSAGINGSENDERID,
-  appId: VITE_APPID,
-};
+// TODO: Descomentar esto cuando sea el momento
+// const firebaseConfig = {
+//   apiKey: VITE_APIKEY,
+//   authDomain: VITE_AUTHDOMAIN,
+//   databaseURL: VITE_DATABASEURL,
+//   projectId: VITE_PROJECTID,
+//   storageBucket: VITE_STORAGEBUCKET,
+//   messagingSenderId: VITE_MESSAGINGSENDERID,
+//   appId: VITE_APPID,
+// };
 
 // Initialize Firebase
-export const FirebaseApp  = initializeApp(firebaseConfig);
-export const FirebaseAuth = getAuth( FirebaseApp );
-export const FirebaseDB   = getFirestore( FirebaseApp );
+export const FirebaseApp = initializeApp(firebaseConfig);
+export const FirebaseAuth = getAuth(FirebaseApp);
+export const FirebaseDB = getFirestore(FirebaseApp);

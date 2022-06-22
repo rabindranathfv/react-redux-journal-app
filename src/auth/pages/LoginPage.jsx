@@ -26,29 +26,26 @@ export const LoginPage = () => {
 
   const onSubmit = ( event ) => {
     event.preventDefault();
-
-    // console.log({ email, password })
     dispatch( startLoginWithEmailPassword({ email, password }) );
   }
 
   const onGoogleSignIn = () => {
-    // console.log('onGoogleSignIn');
     dispatch( startGoogleSignIn() );
   }
 
 
   return (
     <AuthLayout title="Login">
-      <form 
+      <form
         aria-label="submit-form"
-        onSubmit={ onSubmit } 
+        onSubmit={ onSubmit }
         className='animate__animated animate__fadeIn animate__faster'>
           <Grid container>
             <Grid item xs={ 12 } sx={{ mt: 2 }}>
-              <TextField 
-                label="Correo" 
-                type="email" 
-                placeholder='correo@google.com' 
+              <TextField
+                label="Correo"
+                type="email"
+                placeholder='agrega tu correo'
                 fullWidth
                 name="email"
                 value={ email }
@@ -57,10 +54,10 @@ export const LoginPage = () => {
             </Grid>
 
             <Grid item xs={ 12 } sx={{ mt: 2 }}>
-              <TextField 
-                label="Contraseña" 
-                type="password" 
-                placeholder='Contraseña' 
+              <TextField
+                label="Contraseña"
+                type="password"
+                placeholder='Contraseña'
                 fullWidth
                 name="password"
                 inputProps={{
@@ -71,25 +68,24 @@ export const LoginPage = () => {
               />
             </Grid>
 
-
-            <Grid 
+            <Grid
               container
               display={ !!errorMessage ? '': 'none' }
               sx={{ mt: 1 }}>
-              <Grid 
-                  item 
+              <Grid
+                  item
                   xs={ 12 }
                 >
                 <Alert severity='error'>{ errorMessage }</Alert>
               </Grid>
             </Grid>
-            
+
             <Grid container spacing={ 2 } sx={{ mb: 2, mt: 1 }}>
               <Grid item xs={ 12 } sm={ 6 }>
                 <Button
                   disabled={ isAuthenticating }
-                  type="submit" 
-                  variant='contained' 
+                  type="submit"
+                  variant='contained'
                   fullWidth>
                   Login
                 </Button>
@@ -97,7 +93,7 @@ export const LoginPage = () => {
               <Grid item xs={ 12 } sm={ 6 }>
                 <Button
                    disabled={ isAuthenticating }
-                   variant='contained' 
+                   variant='contained'
                    fullWidth
                    aria-label="google-btn"
                    onClick={ onGoogleSignIn }>
@@ -107,7 +103,6 @@ export const LoginPage = () => {
               </Grid>
             </Grid>
 
-
             <Grid container direction='row' justifyContent='end'>
               <Link component={ RouterLink } color='inherit' to="/auth/register">
                 Crear una cuenta
@@ -115,7 +110,6 @@ export const LoginPage = () => {
             </Grid>
 
           </Grid>
-
 
         </form>
 
