@@ -10,7 +10,7 @@ export const SideBar = ({ drawerWidth = 240 }) => {
         <Drawer
             variant='permanent' // temporary
             open
-            sx={{
+            sx={{ 
                 display: { xs: 'block' },
                 '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
             }}

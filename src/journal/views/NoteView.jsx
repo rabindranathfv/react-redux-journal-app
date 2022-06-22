@@ -17,7 +17,7 @@ export const NoteView = () => {
         </Grid>
 
         <Grid container>
-            <TextField
+            <TextField 
                 type="text"
                 variant="filled"
                 fullWidth
@@ -26,7 +26,7 @@ export const NoteView = () => {
                 sx={{ border: 'none', mb: 1 }}
             />
 
-            <TextField
+            <TextField 
                 type="text"
                 variant="filled"
                 fullWidth

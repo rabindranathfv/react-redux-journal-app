@@ -1,12 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { signIgWithGoogle } from '/src/firebase/provider';
+import { FirebaseAuth } from '../../firebase/config';
+import { startRegisterUserWithEmailPassword, signIgWithGoogle } from '../../firebase/provider';
 
 const initialState = {
   status: 'not-authenticated', // checking,
   uid: null,
   email: null,
   displayName: null,
-  picUrl: null,
+  photoURL: null,
   errorMessage: null
 }
 
@@ -19,7 +20,7 @@ export const AuthSlice = createSlice({
       state.uid = payload.uid;
       state.email = payload.email;
       state.displayName = payload.displayName;
-      state.picUrl = payload.photoURL;
+      state.photoURL = payload.photoURL;
       state.errorMessage = null;
     },
     logout: (state, { payload }) => {
@@ -27,7 +28,7 @@ export const AuthSlice = createSlice({
       state.uid = null;
       state.email = null;
       state.displayName = null;
-      state.picUrl = null;
+      state.photoURL = null;
       state.errorMessage = payload.errorMessage | null;
     },
     checkingCredentials: (state) => {
@@ -46,13 +47,19 @@ export const startGoogleSignIn = (email, password) => {
   return async (dispatch) => {
     dispatch(checkingCredentials(email, password));
     const signG = await signIgWithGoogle();
-    console.log("🚀 ~ file: authSlice.js ~ line 40 ~ return ~ signG", signG)
     if (!signG.ok) {
       dispatch(logout(signG.errorMsg))
     }
 
     dispatch(login(signG))
 
+  }
+}
+
+export const startCreatingUserWithEmailPassword = ({ email, password, fullname }) => {
+  return async (dispatch) => {
+    dispatch(checkingCredentials());
+    const registerU = await startRegisterUserWithEmailPassword(email, password, fullname);
   }
 }
 
