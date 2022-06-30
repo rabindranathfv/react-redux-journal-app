@@ -17,7 +17,6 @@ export const JournalPage = () => {
 
   return (
     <JournalLayout>
-      
       {
         (!!active)
           ? <NoteView />
