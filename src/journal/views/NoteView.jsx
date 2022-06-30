@@ -34,8 +34,6 @@ export const NoteView = () => {
           Swal.fire('Nota actualizada', messageSaved, 'success');
       }
     }, [messageSaved])
-    
-    
 
     const onSaveNote = () => {
         dispatch( startSaveNote() );
@@ -52,11 +50,11 @@ export const NoteView = () => {
 
 
     return (
-        <Grid 
-            container 
-            direction='row' 
-            justifyContent='space-between' 
-            alignItems='center' 
+        <Grid
+            container
+            direction='row'
+            justifyContent='space-between'
+            alignItems='center'
             sx={{ mb: 1 }}
             className='animate__animated animate__fadeIn animate__faster'
         >
@@ -65,7 +63,7 @@ export const NoteView = () => {
             </Grid>
             <Grid item>
 
-                <input 
+                <input
                     type="file"
                     multiple
                     ref={ fileInputRef }
@@ -80,11 +78,11 @@ export const NoteView = () => {
                 >
                     <UploadOutlined />
                 </IconButton>
-                
-                <Button 
+
+                <Button
                     disabled={ isSaving }
                     onClick={ onSaveNote }
-                    color="primary" 
+                    color="primary"
                     sx={{ padding: 2 }}
                 >
                     <SaveOutlined sx={{ fontSize: 30, mr: 1 }} />
@@ -93,7 +91,7 @@ export const NoteView = () => {
             </Grid>
 
             <Grid container>
-                <TextField 
+                <TextField
                     type="text"
                     variant="filled"
                     fullWidth
@@ -105,7 +103,7 @@ export const NoteView = () => {
                     onChange={ onInputChange }
                 />
 
-                <TextField 
+                <TextField
                     type="text"
                     variant="filled"
                     fullWidth
