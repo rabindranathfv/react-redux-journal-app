@@ -1,6 +1,5 @@
 import { ImageListItem, ImageList } from '@mui/material';
 
-
 export const ImageGallery = ({ images }) => {
 
   return (
