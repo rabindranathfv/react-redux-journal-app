@@ -43,14 +43,13 @@ export const startSaveNote = () => {
         const { uid } = getState().auth;
         const { active: note } = getState().journal;
 
-        const noteToFireStore = { ...note };
-        delete noteToFireStore.id;
+        const noteToFireStore = { title: note.title, body: note.body, date: note.date, imageUrls: note.imageuRLS };
+        // delete noteToFireStore.id;
 
         const docRef = doc(FirebaseDB, `${uid}/journal/notes/${note.id}`);
         await setDoc(docRef, noteToFireStore, { merge: true });
 
         dispatch(updateNote(note));
-
     }
 }
 
