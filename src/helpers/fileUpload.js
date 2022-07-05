@@ -1,30 +1,25 @@
+const UPLOAD_PRESENT = 'journal-react-app';
 
+export const fileUpload = async (file) => {
+    if (!file) return null;
 
-export const fileUpload = async( file ) => {
-    // if ( !file ) throw new Error('No tenemos ningúna archivo a subir');
-    if ( !file ) return null;
-
-    const cloudUrl = 'https://api.cloudinary.com/v1_1/cursos-udemy/upload';
-
+    const cloudUrl = 'https://api.cloudinary.com/v1_1/dr02vm7ia/image/upload';
     const formData = new FormData();
-    formData.append('upload_preset','react-journal');
-    formData.append('file', file );
+    formData.append('upload_preset', UPLOAD_PRESENT);
+    formData.append('file', file);
 
     try {
- 
-        const resp = await fetch( cloudUrl, {
+        const resp = await fetch(cloudUrl, {
             method: 'POST',
             body: formData
         });
 
-
-        if ( !resp.ok ) throw new Error('No se pudo subir imagen')
+        if (!resp.ok) throw new Error('No se pudo subir imagen')
         const cloudResp = await resp.json();
 
         return cloudResp.secure_url;
 
     } catch (error) {
-        // console.log(error);
         // throw new Error( error.message );
         return null;
     }
