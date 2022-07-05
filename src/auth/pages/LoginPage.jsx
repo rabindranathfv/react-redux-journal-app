@@ -14,9 +14,7 @@ const formData = {
   password: ''
 }
 
-
 export const LoginPage = () => {
-
   const { status, errorMessage } = useSelector( state => state.auth );
 
   const dispatch = useDispatch();
