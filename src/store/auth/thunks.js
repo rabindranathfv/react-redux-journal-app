@@ -8,7 +8,6 @@ export const checkingAuthentication = () => {
     }
 }
 
-
 export const startGoogleSignIn = () => {
     return async (dispatch) => {
         dispatch(checkingCredentials());
@@ -19,7 +18,6 @@ export const startGoogleSignIn = () => {
         dispatch(login(result))
     }
 }
-
 
 export const startCreatingUserWithEmailPassword = ({ email, password, displayName }) => {
     return async (dispatch) => {
@@ -32,7 +30,6 @@ export const startCreatingUserWithEmailPassword = ({ email, password, displayNam
     }
 }
 
-
 export const startLoginWithEmailPassword = ({ email, password }) => {
     return async (dispatch) => {
         dispatch(checkingCredentials());
@@ -44,7 +41,6 @@ export const startLoginWithEmailPassword = ({ email, password }) => {
         dispatch(login(result));
     }
 }
-
 
 export const startLogout = () => {
     return async (dispatch) => {
