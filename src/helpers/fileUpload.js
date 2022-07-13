@@ -1,6 +1,7 @@
 const UPLOAD_PRESENT = 'journal-react-app';
 
 export const fileUpload = async (file) => {
+    // if (!file) throw new Error('no images');
     if (!file) return null;
 
     const cloudUrl = 'https://api.cloudinary.com/v1_1/dr02vm7ia/image/upload';
