@@ -1,4 +1,4 @@
-export const initialState= {
+export const initialState = {
   status: 'checking', // 'checking', 'not-authenticated', 'authenticated'
   uid: null,
   email: null,
@@ -7,7 +7,7 @@ export const initialState= {
   errorMessage: null,
 }
 
-export const authenticaed= {
+export const authenticaed = {
   status: 'authenticated', // 'checking', 'not-authenticated', 'authenticated'
   uid: 'valid-uid',
   email: 'test@gmail.com',
@@ -25,7 +25,7 @@ export const checking = {
   errorMessage: null,
 }
 
-export const notAuthenticaed= {
+export const notAuthenticaed = {
   status: 'not-authenticated', // 'checking', 'not-authenticated', 'authenticated'
   uid: null,
   email: null,
