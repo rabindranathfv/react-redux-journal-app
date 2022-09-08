@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test": "jest --watchAll --all"
+    "test": "jest --watchAll --runInBand"
   },
   "dependencies": {
     "@babel/preset-env": "^7.18.6",

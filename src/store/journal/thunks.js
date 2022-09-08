@@ -33,6 +33,7 @@ export const startLoadingNotes = () => {
 
         const notes = await loadNotes(uid);
         dispatch(setNotes(notes));
+        console.log("TERMINO MALDITO");
     }
 }
 
@@ -42,7 +43,6 @@ export const startSaveNote = () => {
 
         const { uid } = getState().auth;
         const { active: note } = getState().journal;
-        console.log("🚀 ~ file: thunks.js ~ line 45 ~ return ~ note", note)
 
         const noteToFireStore = { ...note };
         delete noteToFireStore.id;
