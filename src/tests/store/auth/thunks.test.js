@@ -7,7 +7,7 @@ import {
   startCreatingUserWithEmailPassword,
   startLoginWithEmailPassword,
   startLogout
-} from './../../../store/auth/thunks';
+} from '../../../store/auth/thunks';
 import {
   singInWithGoogle,
   registerUserWithEmailPassword,
@@ -19,7 +19,7 @@ import { userTest } from '../../fixtures/authFixture';
 
 jest.mock('./../../../firebase/providers');
 
-describe('thunk scenarios:::', () => {
+describe('Auth thunk scenarios:::', () => {
   const dispatch = jest.fn();
   beforeEach(() => jest.clearAllMocks());
 
