@@ -1,5 +1,5 @@
 import { journalDataState, initialJournalState } from '../../fixtures/journalFixture';
-import { addNewEmptyNote, journalSlice, savingNewNote, setActiveNote } from './../../../store/journal/journalSlice';
+import { addNewEmptyNote, clearNotesLogout, journalSlice, savingNewNote, setActiveNote } from './../../../store/journal/journalSlice';
 
 
 describe('journalSlice scenarios:::::', () => {
@@ -38,5 +38,13 @@ describe('journalSlice scenarios:::::', () => {
     }}));
     expect(state.messageSaved).toBe("");
     expect(state.active).toBeDefined();
+  });
+
+  it('should make clearNotesLogout successfully', () => {
+    const state = journalSlice.reducer(journalDataState, clearNotesLogout(journalDataState))
+    expect(state.messageSaved).toBe("");
+    expect(state.notes.length).toBe(0);
+    expect(state.active).toBeFalsy();
+    expect(state.isSaving).toBeFalsy();
   });
 });
