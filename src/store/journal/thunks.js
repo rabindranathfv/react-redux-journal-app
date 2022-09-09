@@ -33,7 +33,6 @@ export const startLoadingNotes = () => {
 
         const notes = await loadNotes(uid);
         dispatch(setNotes(notes));
-        console.log("TERMINO MALDITO");
     }
 }
 

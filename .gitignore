@@ -1,3 +1,7 @@
+# enviroments
+.env
+.env.test
+
 # Logs
 logs
 *.log
