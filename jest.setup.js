@@ -6,7 +6,8 @@ require('dotenv').config({
 });
 
 // TODO: Check enviroment variables
-console.log("Loading ENV VAR FOR TESTING",process.env.VITE_ENV);
+// console.log("Loading ENV VAR FOR TESTING",process.env);
+
 jest.mock('./src/helpers/getEnvironments', () => ({
   getEnvironments: () => ({ ...process.env })
 }));
