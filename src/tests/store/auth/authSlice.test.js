@@ -1,7 +1,7 @@
 
 import { authenticaed, initialState, userTest } from '../../fixtures/authFixture';
 import { authSlice, login, logout, checkingCredentials } from './../../../store/auth/authSlice';
-import { notAuthenticaed, checking } from './../../fixtures/authFixture';
+import { notAuthenticated, checking } from './../../fixtures/authFixture';
 
 describe('authSlice scenarios:::::', () => {
   it('should load initialState', () => {
@@ -17,7 +17,7 @@ describe('authSlice scenarios:::::', () => {
 
   it('should make logout succesfully', () => {
     const state = authSlice.reducer(initialState, logout());
-    expect(state).toEqual(notAuthenticaed);
+    expect(state).toEqual(notAuthenticated);
   });
 
   it('should make checkingCredentials succesfully', () => {

@@ -25,7 +25,7 @@ export const checking = {
   errorMessage: null,
 }
 
-export const notAuthenticaed = {
+export const notAuthenticated = {
   status: 'not-authenticated', // 'checking', 'not-authenticated', 'authenticated'
   uid: null,
   email: null,

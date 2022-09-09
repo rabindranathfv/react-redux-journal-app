@@ -24,6 +24,7 @@ export const LoginPage = () => {
 
   const onSubmit = ( event ) => {
     event.preventDefault();
+    console.log("onClick hello", { email, password });
     dispatch( startLoginWithEmailPassword({ email, password }) );
   }
 
