@@ -88,6 +88,19 @@ describe('Unit test for LoginPage:::::', () => {
 
     expect(mockStartLoginWithEmailPassword).toHaveBeenCalled();
     expect(mockStartLoginWithEmailPassword).toHaveBeenCalledWith({ email: emailMock, password: passwordMock});
-
    })
+
+   it('should render create acount link', () => {
+    render(
+        <Provider store={store}>
+          <MemoryRouter>
+            <LoginPage />
+          </MemoryRouter>
+        </Provider>
+      )
+
+      const redirectCreateAccount = screen.getByRole('link');
+      expect(redirectCreateAccount).toBeDefined();
+      expect(redirectCreateAccount.href.search('/auth/register')).toBeGreaterThan(-1);
+  });
 });
